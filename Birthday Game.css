@@ -1,0 +1,748 @@
+* {
+    color: white;
+    font-size: 24px;
+    font-family: "Comfortaa", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    user-select: none;
+    }
+
+body {
+    position: absolute;
+    background: #222222;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+#useButton {
+    display: none;
+}
+
+
+#startMenu {
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+#startMenu::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("Imgs/Start BG (16 by 9).png");
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.15) blur(3px);
+    z-index: -1;
+}
+
+#gameModeMenu {
+    display: none;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    width: 100vw;
+    place-items: center;
+    margin: 0;
+}
+
+#selectCharacterMenu, #scene, #achievementsMenu {
+    display: none;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    width: 100vw;
+    grid-template-columns: 40vw 60vw;
+    margin: 0;
+}
+
+#achievementsMenu {
+    left: 30vw;
+    width: 70vw;
+    justify-content: center;
+    grid-template-rows: repeat(6, 150px);
+    grid-template-columns: repeat(2, 450px);
+    gap: 20px;
+    overflow-y: scroll;
+}
+
+#achievementsMenu::-webkit-scrollbar {
+    background-color: #333333; 
+}
+
+#achievementsMenu::-webkit-scrollbar-thumb {
+    background-color: #444444;
+}
+
+#achievementsMenu::-webkit-scrollbar-thumb:active {
+    background-color: #555555;
+}
+
+.achievement {
+    width: 100%;
+    height: 100%;
+    border: 3px solid #ffffff22;
+    transition: all 100ms ease-in;
+}
+
+.achievement:hover {
+    filter: brightness(1.3);
+    transform: translateY(-5px) scale(1.05)
+}
+
+#exit {
+    position: fixed;
+    top: -20px;
+    left: 20px;
+    font-size: 32px;
+}
+
+#achievementsInfo {
+    background-color: #333333;
+    position: fixed;
+    left: 5vw;
+    top: 45vh;
+    width: 25vw;
+    height: 50vh;
+    border-radius: 12px;
+    margin: 10px;
+}
+
+#lookAchievement, #lookAchievement2, #lookAchievement3, #lookAchievement4 {
+    display: none;
+    border: 3px #ffffff22 solid;
+    right: 20px;
+    bottom: 20px;
+    position: absolute;
+    height: 100px;
+    width: auto;
+    z-index: 200;
+}
+
+#lookAchievement2 {
+    right: 20px;
+    bottom: 140px;
+}
+
+#lookAchievement3 {
+    right: 20px;
+    bottom: 260px;
+}
+
+#lookAchievement4 {
+    right: 20px;
+    bottom: 380px
+}
+
+
+#charactersMenu {
+    background: #333333;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+
+#startBox {
+    display: grid;
+    grid-template-columns: 250px;
+    grid-template-rows: repeat(3, 125px);
+    place-content: center;
+    background: linear-gradient(45deg, #66336644, #33666677);
+    width: 400px;
+    height: 500px;
+    border-radius: 16px;
+    gap: 20px;
+    margin: auto;
+}
+
+#gameModeBox {
+    display: grid;
+    grid-template-columns: 150px;
+    grid-template-rows: repeat(2, 75px) 250px;
+    place-content: center;
+    background: linear-gradient(45deg, #66573344, #66336177);
+    width: 400px;
+    height: 500px;
+    border-radius: 16px;
+    gap: 20px;
+    margin: auto;
+}
+
+#play, #settings, #achievements, #PvE, #PvP  {
+    width: 100%;
+    height: 100%;
+}
+
+
+#gameModeInfo {
+    display: grid;
+    place-content: center;
+    position: relative;
+    background: linear-gradient(45deg, #665733, #663361);
+    width: 250px;
+    height: 200px;
+    top: 30px;
+    left: -50px;
+    border-radius: 8px;
+}
+
+.img {
+    width: 100px;
+    height: auto;
+}
+
+
+#start {
+    display: none;
+    position: absolute;
+    width: 180px;
+    height: auto;
+    bottom: 20px;
+}
+
+#characters {
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 140px);
+    grid-template-rows: repeat(2, 206.66px);
+    gap: 20px;
+    place-content: center;
+}
+
+.character {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0.5);
+    transition: filter ease-in-out 200ms ;
+}
+
+#charactersInfo {
+    margin: 10px;
+    width: 100%;
+    height: 90%;
+    overflow-y: scroll;
+    border-radius: 24px;
+}
+
+#charactersInfo > p {
+    font-size: 16px;
+}
+
+#charactersSkins {
+    display: none;
+    grid-template-columns: repeat(3, 170px);
+    justify-content: center;
+    gap: 40px;
+    margin: 10px;
+    font-size: 0.0000001px;
+    width: 100%;
+    height: 90%;    
+    position: relative; 
+    overflow-y: scroll;
+    border-radius: 24px;
+}
+
+#charactersSkins::-webkit-scrollbar {
+    background-color: #333333; 
+}
+
+#charactersSkins::-webkit-scrollbar-thumb {
+    background-color: #444444;
+}
+
+#charactersSkins::-webkit-scrollbar-thumb:active {
+    background-color: #555555;
+}
+
+#charactersInfo::-webkit-scrollbar {
+    background-color: #333333; 
+}
+
+#charactersInfo::-webkit-scrollbar-thumb {
+    background-color: #444444;
+}
+
+#charactersInfo::-webkit-scrollbar-thumb:active {
+    background-color: #555555;
+}
+
+#charactersButtons {
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    grid-template-rows: 50px;
+    place-content: center;
+    gap: 50px;
+    width: 100%;
+    height: 10%;
+}
+
+.button {
+    display: grid;
+    place-content: center;
+    border-radius: 12px;
+    transition: filter ease-in-out 150ms;
+    user-select: none;
+}
+
+.button:hover > p {
+    transition: all ease-in-out 150ms;
+    font-size: 26px;
+}
+
+#skinsButton {
+    background: #443344;
+    filter: brightness(0.7) blur(1px);
+}
+
+#skinsButton > p {
+    color: #ffddff
+}
+
+#charactersInfoButton {
+    background: #334433;
+}
+
+#charactersInfoButton > p {
+    color: #ddffdd
+}
+
+.skin {
+    position: relative;
+    top: 20px;
+    width: 170px;
+    height: auto;
+    filter: brightness(0.8);
+    transition: filter 50ms ease-in-out;
+}
+
+.skin:hover {
+    filter: brightness(1.0);
+}
+
+#heading {
+    color: #ffffff44;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    font-size: 18px;
+}
+
+.characterCell {
+    display: grid;
+    place-content: center;
+    position: absolute;
+    background: #444444;
+    width: 300px;
+    height: 300px;
+    border-radius: 16px;
+}
+
+#attackCards {
+    position: relative;
+    top: calc(100vh - 241.43px);
+    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 150px) 25px;
+    place-content: center;
+}
+
+#yourCharacter {
+    left: 50px;
+    top: calc(50vh - 150px)
+}
+
+
+#enemyCharacter {
+    right: 50px;
+    top: calc(50vh - 150px)
+}
+
+.characterAttackCard {
+    width: 150px;
+    height: auto;
+    transition: all ease-in-out 200ms;
+    filter: brightness(0.8);
+}
+
+.characterAbilityCard {
+    position: relative;
+    top: calc(50% - 35px);
+    width: 70px;
+    height: auto;
+    transition: all ease-in-out 200ms;
+    filter: brightness(0.8);
+}
+
+.characterAbilityCard:hover {
+    transform: scale(1.05) translateY(-10px);
+    filter: brightness(1);
+}
+
+.characterAttackCard:hover {
+    transform: scale(1.05) translateY(-10px);
+    filter: brightness(1);
+}
+
+.characterImg {
+    width: 125px;
+    height: auto;
+}
+
+#yourCounters {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+#enemyCounters {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.allCounters {
+    display: grid;
+    place-content: center;
+    grid-template-columns: 180px;
+    grid-template-rows: repeat(3, 36.66px);
+    gap: 10px;
+    width: 200px;
+    height: 150px;
+    background: linear-gradient(45deg, #ffffff05, #ffffff11);
+    border-radius: 12px;
+}
+
+.counterBox {
+    display: grid;
+    place-items: center;
+    place-content: center;
+    grid-template-columns: 140px 30px;
+    grid-template-rows: 30px;
+    gap: 10px;
+    background: #ffffff05;
+    border-radius: 8px;
+}
+
+.counter {
+    font-size: 18px;
+    position: absolute;
+    left: 20px;
+}
+
+#enemyCharacterImg {
+    transform: rotateY(180deg);
+}
+
+.counterImg {
+    width: auto;
+    height: 25px;
+    position: absolute;
+    right: 20px;
+}
+
+#turn {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+#attackInfo {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    width: 200px;
+    height: 150px;
+    background: #333333;
+    border-radius: 12px;
+}
+
+#attackInfo > p {
+    font-size: 14px;
+}
+
+#attackInfo > b {
+    font-size: 12px;
+}
+
+.achHeading {
+    font-size: 28px;
+
+}
+.achDescription {
+    font-size: 22px;
+    color: #dddddd
+}
+.achInfo {
+    font-size: 16px;
+    color: #bbbbbb
+}
+
+@media (max-width: 1280px) {
+    #achievementsMenu {
+        left: 30vw;
+        width: 70vw;
+        justify-content: center;
+        grid-template-rows: repeat(6, 130px);
+        grid-template-columns: repeat(2, 390px);
+        gap: 20px;
+        overflow-y: scroll;
+    }
+} 
+
+
+@media (max-width: 1024px) {
+    #achievementsMenu {
+        left: 30vw;
+        width: 70vw;
+        justify-content: center;
+        grid-template-rows: repeat(6, 100px);
+        grid-template-columns: repeat(2, 300px);
+        gap: 20px;
+        overflow-y: scroll;
+    }
+
+    #charactersSkins {
+        grid-template-columns: repeat(3, 120px);
+    }
+
+    .skin {
+        width: 120px;
+    }
+
+    .characterCell {
+        width: 200px;
+        height: 200px;
+    }
+
+    #attackCards {
+        position: relative;
+        right: 40px;
+        top: calc(100vh - 241.43px);
+        grid-template-columns: repeat(3, 120px) 25px;
+        place-content: center;
+    }
+
+    .characterAttackCard {
+        width: 120px;
+    }
+} 
+
+@media (max-height: 650px) {
+    #gameModeBox {
+        position: absolute;
+        top: 10px;
+        height: 450px;
+        width: 390px;
+    }
+
+    #PvP, #PvE {
+        position: relative;
+        top: 10px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    #startBox, #gameModeBox {
+        width: 90vw;
+    }
+
+    #gameModeBox {
+        position: absolute;
+        top: 30px;
+    }
+
+    #characters {
+        grid-template-columns: repeat(2, 70px);
+        grid-template-rows: repeat(2, 103.33px);
+        top: 0;
+        width: 100vw;
+        height: 50vh;
+    }
+
+    #charactersButtons {
+        grid-template-columns: repeat(2, 150px);
+    }
+
+    #charactersInfoButton {
+        position: absolute;
+        left: 10px;
+        top: 5px;
+    }
+
+    #skinsButton {
+        position: absolute;
+        right: 10px;
+        top: 5px;
+    }
+
+    .button {
+        position: relative;
+        top: 15px;
+        width: 120px;
+        height: 40px;
+    }
+
+    .button > p {
+        font-size: 18px;
+    }
+
+    #charactersMenu {
+        position: absolute;
+        top: 50vh;
+        bottom: 0;
+        width: 100vw;
+        height: 50vh;
+    }
+
+    #charactersInfo {
+        height: 80%;
+        margin: -10px;
+        left: 5vw;
+        width: 90vw;
+        position: relative;
+        top: 30px;
+    }
+
+    #heading {
+        width: 100vw;
+        left: 0;
+        top: 0;
+    }
+
+    #charactersSkins {
+        grid-template-columns: repeat(3, 100px);
+        gap: 10px;
+        left: 1vw;
+        width: 98vw;
+    }
+
+    .skin {
+        width: 100px;
+    }
+
+    .characterCell {
+        width: 100px;
+        height: 100px;
+    }
+
+    .characterImg {
+        width: 50px;
+        height: auto;
+    }
+
+    .allCounters {
+        width: 160px;
+        height: 120px;
+        grid-template-columns: 120px;
+        grid-template-rows: repeat(3, 24.44px);
+    }
+
+    .counterBox {
+    grid-template-columns: 140px 30px;
+    grid-template-rows: 15px;
+    }
+
+    .counterImg {
+        width: 18px;
+        height: auto;
+    }
+    
+    .counter {
+        font-size: 14px;
+    }
+
+    #attackCards {
+        right: 10px;
+        top: calc(100vh - 341.43px);
+        gap: 20px;
+        grid-template-columns: repeat(3, 75px) 10.41px;
+    }
+
+    .characterAttackCard {
+        width: 75px;
+    }
+
+    .characterAbilityCard {
+        width: 40px
+    }
+
+    #turn {
+        font-size: 16px;
+    }
+
+    #useButton {
+        display: block;
+        width: 120px;
+        height: 60px;
+        background-color: #333333;
+        position: fixed;
+        bottom: 110px;
+        left: 15px;
+    }
+
+    #achievementsMenu {
+        width: 100vw;
+        height: 50vh;
+        bottom: 0;
+        top: 50vh;
+        left: 0;
+        grid-template-columns: repeat(2, 150px);
+        grid-template-rows: repeat(6, 50px);
+    }
+
+    #achievementsInfo {
+        top: 15vh;
+        width: 300px;
+        height: 200px;
+    }
+
+    .achHeading {
+        font-size: 16px;
+    }
+
+    .achDescription {
+        font-size: 14px;
+    }
+
+    .achInfo {
+        font-size: 12px;
+    }
+
+    #lookAchievement, #lookAchievement2, #lookAchievement3, #lookAchievement4 {
+        height: 75px;
+        width: auto;
+    }
+
+    #lookAchievement2 {
+        bottom: 115px;
+    }
+
+    #lookAchievement3 {
+        bottom: 210px;
+    }
+
+    #lookAchievement4 {
+        bottom: 305px;
+    }
+}

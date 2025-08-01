@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="Birthday Game.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/decimal.js/10.2.0/decimal.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="Birthday Game.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy birthday!!</title>
+</head>
+<body>
+    <img src="Achievements/Achievement.png" alt="achievement" id="lookAchievement">
+    <img src="Achievements/Achievement.png" alt="achievement" id="lookAchievement2">
+    <img src="Achievements/Achievement.png" alt="achievement" id="lookAchievement3">
+    <img src="Achievements/Achievement.png" alt="achievement" id="lookAchievement4">
+    <div id="startMenu">
+        <div id="startBox">
+            <img src="Imgs/Play.png" alt="play" class="img" id="play">
+            <img src="Imgs/Settings.png" alt="settings" id="settings">
+            <img src="Imgs/Achievements.png" alt="achievements" id="achievements">
+        </div>
+    </div>
+
+    <div id="gameModeMenu">
+        <div id="gameModeBox">
+            <img src="Imgs/PvE.png" alt="PvE" id="PvE">
+            <img src="Imgs/PvP.png" alt="PvP" id="PvP">
+            <div id="gameModeInfo"></div>
+        </div>
+        <img src="Imgs/Start.png" alt="start" id="start">
+    </div>
+
+    <div id="selectCharacterMenu">
+        <div id="characters">
+            <img src="Cards/Shelly card.png" alt="" class="character" id="shelly" data-model="Characters and Skins/Shelly.png">
+            <img src="Cards/Gravity Card.png" alt="" class="character" id="gravity" data-model="Characters and Skins/Gravity.png">
+            <img src="Cards/Pumpkin card.png" alt="" class="character" id="pumpkin" data-model="Characters and Skins/Pumpkin.png">
+            <img src="Cards/Chara card.png" alt="" class="character" id="chara" data-model="Characters and Skins/Chara.png">
+            <p id="heading">Выбери своего персонажа</p>
+        </div>
+        <div id="charactersMenu">
+            <div id="charactersButtons">
+                <div id="charactersInfoButton" class="button"><p>character</p></div>
+                <div id="skinsButton" class="button"><p>skins</p></div>
+            </div>
+            <div id="charactersInfo"></div>
+            <div id="charactersSkins"></div>
+        </div>
+    </div>
+
+    <div id="scene">
+        <img src="Imgs/Use.png" id="useButton"></img>
+        <p id="turn">Твой ход</p>
+        <div id="yourCharacter" class="characterCell">
+            <img src="Characters and Skins/void.png" alt="you" class="characterImg" id="yourCharacterImg">
+        </div>
+        <div id="enemyCharacter" class="characterCell">
+            <img src="Characters and Skins/void.png" alt="enemy" class="characterImg" id="enemyCharacterImg">
+        </div>
+
+        <div id="attackCards">
+            <img src="Cards/Void card.png" alt="Void" class="characterAttackCard" id="attack1">
+            <img src="Cards/Void card.png" alt="Void" class="characterAttackCard" id="attack2">
+            <img src="Cards/Void card.png" alt="Void" class="characterAttackCard" id="attack3">
+            <img src="Abilities/abilityVoid.png" alt="ability" class="characterAbilityCard" id="ability">
+        </div>
+
+        <div id="yourCounters" class="allCounters">
+            <div class="counterBox" id="boxCounter1">
+                <p class="counter" id="yourArmor">Броня: 0</p>
+                <img src="Imgs/Armor Icon.png" alt="Броня" class="counterImg">
+            </div>
+            <div class="counterBox" id="boxCounter2">
+                <p class="counter" id="yourMana">Мана: 0</p>
+                <img src="Imgs/Mana Icon.png" alt="Мана" class="counterImg">
+            </div>
+            <div class="counterBox" id="boxCounter3">
+                <p class="counter" id="yourHp">ОЗ: 0</p>
+                <img src="Imgs/HP Icon.png" alt="ОЗ" class="counterImg">
+            </div>
+        </div>
+
+        <div id="enemyCounters" class="allCounters">
+            <div class="counterBox" id="enemyBoxCounter1">
+                <p class="counter" id="enemyArmor">Броня: 100</p>
+                <img src="Imgs/Armor Icon.png" alt="Броня" class="counterImg">
+            </div>
+            <div class="counterBox" id="enemyBoxCounter2">
+                <p class="counter" id="enemyMana">Мана: 100</p>
+                <img src="Imgs/Mana Icon.png" alt="Мана" class="counterImg">
+            </div>
+            <div class="counterBox" id="enemyBoxCounter3">
+                <p class="counter" id="enemyHp">ОЗ: 100</p>
+                <img src="Imgs/HP Icon.png" alt="ОЗ" class="counterImg">
+            </div>
+        </div>
+        <div id="attackInfo"></div>
+    </div>
+
+    <div id="achievementsMenu">
+        <img src="Achievements/Achievement.png" alt="achievement" class="achievement" id="happyBirthday">
+        <img src="Achievements/Achievement.png" alt="achievement" class="achievement" id="timeParadox">
+        <img src="Achievements/Achievement.png" alt="achievement" class="achievement" id="gravityHasGoneTooFar">
+        <img src="Achievements/Achievement.png" alt="achievement" class="achievement" id="firstWin">
+        <img src="Achievements/Achievement.png" alt="achievement" class="achievement" id="plants">
+        <img src="Achievements/Achievement.png" alt="achievement" class="achievement" id="glitchMeeting">
+        <img src="Achievements/Achievement.png" alt="achievement" class="achievement" id="howDareYou">
+        <img src="Achievements/Achievement.png" alt="achievement" class="achievement" id="pacifist">
+        <img src="Achievements/Achievement.png" alt="achievement" class="achievement" id="lastBreath">
+        <img src="Achievements/Achievement.png" alt="achievement" class="achievement" id="suicide">
+        <img src="Achievements/Achievement.png" alt="achievement" class="achievement" id="noMoreDeals">
+        <img src="Achievements/Achievement.png" alt="achievement" class="achievement" id="what">
+        <p id="exit">&lt;</p>
+        <div id="achievementsInfo"></div>
+    </div>
+</body>
+</html>
