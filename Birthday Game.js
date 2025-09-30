@@ -1432,7 +1432,7 @@ $(document).ready(() => {
 	let gravityAtk2 = new Audio('SFX/Gravity atk2.wav')
 	let gravityAtk3 = new Audio('SFX/Gravity atk3.wav')
 
-	let timeParadox = new Audio('Music/Time Paradox.mp3')
+	let timeParadox = new Audio('Music/Time paradox.mp3')
 	let gravityHasGoneTooFar = new Audio('Music/GravityHasGoneTooFar.mp3')
 	let noMoreDeals = new Audio('Music/No more deals.mp3')
 	let glitchFight = new Audio('Music/Glitch meeting.mp3')
@@ -2093,3 +2093,4 @@ $(document).ready(() => {
 		}
 	}
 })
+
